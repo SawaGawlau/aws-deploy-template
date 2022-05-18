@@ -1,0 +1,34 @@
+# This workflow will do a clean install of node dependencies, 
+# build the source code and run tests across different versions of node
+name: Build
+on:
+  push:
+    branches: [xx]
+  pull_request:
+    branches: [xx]
+
+jobs: # list of jobs we want to run
+  # this workflow contains a single job called "build"
+  build: 
+    # the type of runner that job will run on
+    runs-on: self-hosted # because we are going to work on our virtual private server / ubuntu for linux/windows etc
+
+    strategy:
+      matrix:
+      # [12.x, 14.x, 16.x] in this case jobs will be done three times - each one for every node version(we leave one) 
+        node-version: [16.x] 
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    # steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build --if-present # doesnt work without sudo
+    # - run: npm run test
+    # run: npm install # install all dependencies
+    # - name: Build with npm
+    #  run: npm build --if-present
