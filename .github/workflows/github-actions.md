@@ -57,7 +57,7 @@ jobs:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@v2
             with:
-            node-version: '14.x'
+            node-version: [12.x, 14.x, 16.x]
         - run: npm install
         - run: npm test
 ``` 
@@ -75,4 +75,17 @@ steps:
 
     - name: Run test
       run: npm test
+```
+If we are using different versions of node we can specify this using `matrix` keyword and to make sure our job is done on each version:
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14, 16]
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
 ```
