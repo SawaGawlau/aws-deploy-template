@@ -27,8 +27,6 @@ jobs: # list of jobs we want to run
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build --if-present # doesnt work without sudo
-    # - run: npm run test
-    # run: npm install # install all dependencies
-    # - name: Build with npm
-    #  run: npm build --if-present
+    - run: npm run build --if-present 
+    - run: npm run test
+
