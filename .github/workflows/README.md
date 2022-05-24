@@ -1,4 +1,5 @@
-## Workflow syntax for Github Actions
+ ## Github Actions
+> Github’s automation solution that allows you to supply a yaml configuration to automate tasks such as CI/CD operations.
 
 All workflow files must be either .yml or .yaml extension and must be stored in .github/workflows location.
 

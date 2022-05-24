@@ -1,4 +1,4 @@
-### Project configuration
+> ### Project configuration
 
 
 1. **Create repository on GitHub.com**
