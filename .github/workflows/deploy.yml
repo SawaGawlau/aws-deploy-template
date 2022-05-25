@@ -21,7 +21,7 @@ jobs:
         id: deploy
         run: |
           aws deploy create-deployment \
-            --application-name app \
-            --deployment-group-name app-group \
+            --application-name riu \
+            --deployment-group-name riu-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
