@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - release-please
+name: release-please
+jobs:
+ #   if: github.event.pull_request.merged == true
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: release-please-action
