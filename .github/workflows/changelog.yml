@@ -1,15 +1,28 @@
-name: Generate changelog
+name: 'Update Changelog'
+
 on:
-  release:
-    types: [created, edited]
+    release:
+        types: [released]
 
 jobs:
-  generate-changelog:
-    runs-on: ubuntu-latest
-    - uses: BobAnkh/auto-generate-changelog@master
-      with:
-        REPO_NAME: 'SawaGawlau/aws-deploy-template'
-        ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        PATH: 'CHANGELOG.md'
-        COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
-        TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
+    update:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+              with:
+                  ref: main
+
+            - name: Update Changelog
+              uses: stefanzweifel/changelog-updater-action@v1
+              with:
+                  release-notes: ${{ github.event.release.body }}
+                  latest-version: ${{ github.event.release.name }}
+
+            - name: Commit updated CHANGELOG
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  branch: main
+                  commit_message: Update CHANGELOG
+                  file_pattern: CHANGELOG.md
