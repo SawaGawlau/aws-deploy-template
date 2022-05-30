@@ -1,7 +1,7 @@
 on:
    push:
      branches:
-       - sawa/release
+       - release
  name: release-please
  jobs:
   #   if: github.event.pull_request.merged == true
