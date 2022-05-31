@@ -39,7 +39,7 @@ jobs:
       run: |
         npm run release
         git push --follow-tags origin main
-        npm semantic release
+        npx semantic release
 
 
   
