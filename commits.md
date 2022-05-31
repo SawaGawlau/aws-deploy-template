@@ -8,8 +8,14 @@ npm publish
 
 BREAKING CHANGE: is a total change of your code, this is also 
 can be used with a previous tag like or with append !
+Major Breaking Release 
+(Note that the BREAKING CHANGE: token must be in the footer of the commit)
 ```
-BREAKING CHANGE: feat: <description> 
+perf(pencil): remove graphiteWidth option
+
+BREAKING CHANGE: The graphiteWidth option has been removed.
+The default graphite width of 10mm is always used for performance reasons.
+
 feat!: send an email to the customer when a product is shipped
 chore!: drop support for Node 6
 
