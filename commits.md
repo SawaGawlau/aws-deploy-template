@@ -1,7 +1,7 @@
 > ### Conventional commits
 git fetch
 git fetch --tags
-npm run release
+npm run release - standard-version package
 git push --follow-tags origin release
 npm publish
 
@@ -20,8 +20,8 @@ feat!: send an email to the customer when a product is shipped
 chore!: drop support for Node 6
 
 ```
-
-(this correlates with a MAJOR in SemVer es: 2.0.0 -> 3.0.0).
+Triggering a release
+For each new commit added to one of the release branches (for example: master, next, beta), with git push or by merging a pull request or merging from another branch, a CI build is triggered and runs the semantic-release command to make a release if there are codebase changes since the last release that affect the package functionalities.
 
  **Why to use conventional commits?**
     * automatically generates chengelogs
