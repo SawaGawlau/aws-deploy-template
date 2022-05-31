@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/SawaGawlau/aws-deploy-template/compare/v4.0.0...v4.1.0) (2022-05-31)
+
+
+### Features
+
+* **workflow:** new job added ([3b0523b](https://github.com/SawaGawlau/aws-deploy-template/commit/3b0523bdfc66a919711c8c984e299e9065150c45))
+
 # [4.0.0](https://github.com/SawaGawlau/aws-deploy-template/compare/v3.0.0...v4.0.0) (2022-05-31)
 
 
