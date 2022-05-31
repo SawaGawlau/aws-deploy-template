@@ -2,19 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.3](https://github.com/SawaGawlau/aws-deploy-template/compare/v0.0.1...v0.0.3) (2022-05-31)
-
-
-### Bug Fixes
-
-* add new scrip ([ab178ae](https://github.com/SawaGawlau/aws-deploy-template/commit/ab178aea40f21e0c3ffecc1be57308a7f8e3712a))
-
-### [0.0.2](https://github.com/SawaGawlau/aws-deploy-template/compare/v0.0.1...v0.0.2) (2022-05-31)
-
-
-### Bug Fixes
-
-* add new scrip ([ab178ae](https://github.com/SawaGawlau/aws-deploy-template/commit/ab178aea40f21e0c3ffecc1be57308a7f8e3712a))
+### 0.0.2 (2022-05-31)
 
 ### 0.0.1 (2022-05-31)
 
