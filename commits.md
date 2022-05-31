@@ -87,3 +87,8 @@ npx husky install
 ```
 
 https://dev.to/kouts/automated-versioning-and-package-publishing-using-github-actions-and-semantic-release-1kce
+
+another sciprts:
+        
+        git remote -v
+        npm run release:tag --dryRun
