@@ -11,6 +11,8 @@ can be used with a previous tag like or with append !
 ```
 BREAKING CHANGE: feat: <description> 
 feat!: send an email to the customer when a product is shipped
+chore!: drop support for Node 6
+
 ```
 
 (this correlates with a MAJOR in SemVer es: 2.0.0 -> 3.0.0).
