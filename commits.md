@@ -1,5 +1,9 @@
 > ### Conventional commits
-
+git fetch
+git fetch --tags
+npm run release
+git push --follow-tags origin release
+npm publish
  **Why to use conventional commits?**
     * automatically generates chengelogs
     * determine semantic version based
