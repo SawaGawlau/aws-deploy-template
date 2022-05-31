@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.0.0 (2022-05-31)
+
+
+### Bug Fixes
+
+* release workflow ([810548b](https://github.com/SawaGawlau/aws-deploy-template/commit/810548b1fa2635e13658fcb44d3e35f39096eaa5))
+
 ## [0.0.0-semantic-release](https://github.com/SawaGawlau/aws-deploy-template/compare/v4.1.0...v0.0.0-semantic-release) (2022-05-31)
 
 
