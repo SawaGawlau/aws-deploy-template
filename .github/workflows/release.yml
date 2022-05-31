@@ -1,6 +1,6 @@
 # Name of the workflow
 name: Release
-
+# release on commit
 # Run on every commit tag which begins with "v" (e.g., "v0.1.4")
 on:
   push:
