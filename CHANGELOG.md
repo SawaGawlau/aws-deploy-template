@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/SawaGawlau/aws-deploy-template/compare/v1.2.0...v1.2.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* **workflow:** delete incorrect workflows ([3784952](https://github.com/SawaGawlau/aws-deploy-template/commit/37849520007ef29b2dc38c00ed2b3605e920a888))
+
 ## [1.2.0](https://github.com/SawaGawlau/aws-deploy-template/compare/v3.0.0...v1.2.0) (2022-05-31)
 
 
