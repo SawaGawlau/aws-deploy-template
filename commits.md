@@ -4,6 +4,17 @@ git fetch --tags
 npm run release
 git push --follow-tags origin release
 npm publish
+
+
+BREAKING CHANGE: is a total change of your code, this is also 
+can be used with a previous tag like or with append !
+```
+BREAKING CHANGE: feat: <description> 
+feat!: send an email to the customer when a product is shipped
+```
+
+(this correlates with a MAJOR in SemVer es: 2.0.0 -> 3.0.0).
+
  **Why to use conventional commits?**
     * automatically generates chengelogs
     * determine semantic version based
