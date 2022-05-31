@@ -3,7 +3,6 @@ on:
     push:
         branches:
             - xx
-
 jobs:
   deploy:
     # needs: build

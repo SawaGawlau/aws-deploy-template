@@ -16,8 +16,18 @@ perf(pencil): remove graphiteWidth option
 BREAKING CHANGE: The graphiteWidth option has been removed.
 The default graphite width of 10mm is always used for performance reasons.
 
-feat!: send an email to the customer when a product is shipped
+!feat: send an email to the customer when a product is shipped
 chore!: drop support for Node 6
+
+BREAK: feat: split ROLE_VIEW_ABSENCE_HISTORIES
+
+or
+
+!feat: split ROLE_VIEW_ABSENCE_HISTORIES
+
+or
+
+FEAT: split ROLE_VIEW_ABSENCE_HISTORIES
 
 ```
 Triggering a release
@@ -66,4 +76,14 @@ For each new commit added to one of the release branches (for example: master, n
      follows the body with one blank line
 
 
-   
+   **Commitlint, husky**
+We'll leverage husky to add a Git hook that uses commitlint to check whether our commit message meets the conventional commit format, every time we commit.
+
+```
+npm install -D @commitlint/cli @commitlint/config-conventional
+npm install -D husky
+npx husky install
+
+```
+
+https://dev.to/kouts/automated-versioning-and-package-publishing-using-github-actions-and-semantic-release-1kce
