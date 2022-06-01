@@ -17,10 +17,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    - name: Config github
-      run: |
-        git config --local user.email "$(git log --format='%ae' HEAD^!)"
-        git config --local user.name "$(git log --format='%an' HEAD^!)"
     - name: Create release
       id: create-new-release
       uses: actions/create-release@v1
