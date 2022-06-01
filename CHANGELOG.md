@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/SawaGawlau/aws-deploy-template/compare/v0.0.4...v0.0.5) (2022-06-01)
+
+
+### Features
+
+* new workflow ([2902f2f](https://github.com/SawaGawlau/aws-deploy-template/commit/2902f2fe7d1a9ae19a0ffdfa76caab17f708f95d))
+
+
+### Bug Fixes
+
+* add new workflow for release ([d0a38bb](https://github.com/SawaGawlau/aws-deploy-template/commit/d0a38bb28eb98dd01ed0d169218b808a202f0a12))
+* new credentials ([976b1d7](https://github.com/SawaGawlau/aws-deploy-template/commit/976b1d7689bc778e4689cf17e9473326b2000508))
+* new credentials ([b381796](https://github.com/SawaGawlau/aws-deploy-template/commit/b38179697ebe5d0e26b9ad62c98d07b54a1ee6f2))
+
 ### 0.0.4 (2022-05-31)
 
 ### 0.0.2 (2022-05-31)
