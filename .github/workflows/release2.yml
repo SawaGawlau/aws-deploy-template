@@ -4,8 +4,8 @@ name: Release
 # Run on every commit tag which begins with "v" (e.g., "v0.1.4")
 on:
   push:
-    tags:
-      - "v*"
+    branches: 
+    - fix-app-getChangeFile
 
 # Automatically create a GitHub Release, with release details specified (the relevant commits)
 jobs:
@@ -26,7 +26,7 @@ jobs:
           body: |
             Changes in this Release
             - First Change
-            - Second Chang e
+            - Second Change
           draft: false
           prerelease: false
       - name: 'List changes'
@@ -36,4 +36,3 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo "Do something with this ${changed_file}."
           done
-          
