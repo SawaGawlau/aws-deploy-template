@@ -7,7 +7,7 @@
     "start:dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "standard-version",
-    "changelog": "changelog-generate"
+    "changelog": "generate-changelog"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "generate-changelog": "^1.8.0",
     "nginx": "^1.0.7",
     "release-changelog": "^0.6.1",
     "semantic-release": "^19.0.2"
