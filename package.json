@@ -37,5 +37,8 @@
     "nginx": "^1.0.7",
     "release-changelog": "^0.6.1",
     "semantic-release": "^19.0.2"
-  }
+  },
+    "release": {
+      "branches": ["main"]
+    }
 }
