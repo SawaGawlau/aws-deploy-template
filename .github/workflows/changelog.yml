@@ -3,7 +3,7 @@ name: Conventional Changelog action
 on:
   push:
     branches:
-      - ci
+      - xx
   pull_request:
     types: [opened, reopened, synchronize]
 

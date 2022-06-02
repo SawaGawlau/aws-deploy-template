@@ -9,6 +9,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
+    
       - name: version
         run: echo "::set-output name=version::$(./bin/aws-deploy-template --version)"
         id: version
