@@ -24,6 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag: ver-${{ github.sha }}
+          tag_name: ver-${{ github.sha }}
           release_name: Release ${{ github.ref }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
