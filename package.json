@@ -7,7 +7,7 @@
     "start:dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "standard-version",
-    "changelog": "changelog generate"
+    "changelog": "changelog-generate"
   },
   "repository": {
     "type": "git",
