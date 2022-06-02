@@ -9,6 +9,7 @@ on:
 
 jobs:
   changelog:
+    name: create changelog
     runs-on: ubuntu-latest
     steps:
       - name: Conventional Changelog Action
