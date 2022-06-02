@@ -6,5 +6,5 @@ jobs:
    runs-on: [ ubuntu-latest ]
    steps:
      - name: Generate changelog
-       run: |
-         changelog generate
+       run: changelog generate
+
