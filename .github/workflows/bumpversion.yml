@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - xx
+  pull_request:
+    branches:
+      - xx
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Test changed-files
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v22.1
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+      - name: run if package.json was changed
+        if: contains(steps.changed-files.outputs.all_changed_files, 'package.json')
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+        tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: run if App.vue was changed
+        if: contains(steps.changed-files.outputs.all_changed_files, 'App.vue')
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

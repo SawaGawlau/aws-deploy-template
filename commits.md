@@ -97,3 +97,7 @@ another sciprts:
 usun wszystkie tagi
 
 git tag | xargs git tag -d
+
+Adding Commitizen - genrator conventional commits
+warunek
+if: contains(github.event.head_commit.message, 'feat')
