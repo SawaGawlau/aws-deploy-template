@@ -17,6 +17,10 @@
             "labels": ["other"]
         },
         {
+            "title": "## 💬 Documentation",
+            "labels": ["docs"]
+        },
+        {
             "title": "## 📦 Dependencies",
             "labels": ["dependencies"]
         }
