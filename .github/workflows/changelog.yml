@@ -11,11 +11,10 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate changelog
-        id: changelog
-        uses: ./
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKE }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           create-summary: true
 
       - name: Create Release
