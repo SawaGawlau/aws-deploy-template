@@ -6,4 +6,4 @@ jobs:
    runs-on: [ ubuntu-latest ]
    steps:
      - name: Generate changelog
-       run: sh ./github-actions.script.sh
+       run: sh ./github-actions.sh
