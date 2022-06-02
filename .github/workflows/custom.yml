@@ -5,6 +5,8 @@ jobs:
  test:
    runs-on: [ ubuntu-latest ]
    steps:
+     - name: Install changelog
+       run: npm install generate-changelog
      - name: Generate changelog
        run: npm run changelog
 
