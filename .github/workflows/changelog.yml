@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
+        id: changelog
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           create-summary: true
@@ -23,6 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
