@@ -1,0 +1,32 @@
+name: Conventional Changelog action
+
+on:
+  push:
+    branches:
+      - xx
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: version
+        run: echo "::set-output name=version::$(./bin/aws-deploy-template --version)"
+        id: version
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
+        id: changelog
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          create-summary: true
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        if: steps.changelog.outputs.skipped != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ver-${{ github.sha }}
+          release_name: ${{ steps.version.outputs.version }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}

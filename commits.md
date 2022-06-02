@@ -92,3 +92,8 @@ another sciprts:
         
         git remote -v
         npm run release:tag --dryRun
+
+
+usun wszystkie tagi
+
+git tag | xargs git tag -d
