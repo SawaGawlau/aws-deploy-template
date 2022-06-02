@@ -11,6 +11,9 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     steps:
+      - name: version
+        run: echo "::set-output name=version::$(./bin/aws-deploy-template --version)"
+        id: version
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
         id: changelog
@@ -25,5 +28,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ver-${{ github.sha }}
-          release_name: Release ${{ github.ref }}
+          release_name: ${{ steps.version.outputs.version }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
