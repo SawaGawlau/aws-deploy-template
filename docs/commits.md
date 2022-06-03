@@ -102,5 +102,8 @@ Adding Commitizen - genrator conventional commits
 warunek
 if: contains(github.event.head_commit.message, 'feat')
 npx semantic release
-dziala na feat, 
-nie zmienia wersji na doc
+dziala na feat minor +1
+
+nie zmienia wersji przy commit doc
+
+FIX: 
