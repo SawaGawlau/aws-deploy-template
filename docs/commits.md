@@ -107,4 +107,4 @@ dziala na feat minor +1
 nie zmienia wersji przy commit doc
 
 FIX: zmienia patch +1
-BREAKING CHANGE
+BREAKING CHANGE: major version chaqnge +1
