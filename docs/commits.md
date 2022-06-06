@@ -1,11 +1,95 @@
-> ### Conventional commits
-git fetch
-git fetch --tags
-npm run release - standard-version package
-git push --follow-tags origin release
-npm publish
+
+## Conventional Commit Messages 
+
+The Conventional Commits specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history. 
+
+ ### Why to use conventional commits?
+   * automatically generates chengelogs
+   * determine semantic version based on commit message
+   * structured commit history
+
+<img src="https://miro.medium.com/max/1400/0*rgEpGMRh2i93o54b.jpg" width="500" height="200" />
+
+## Commit Formats
+
+### Schema
+<pre>
+<b><a href="#types">&lt;type&gt;</a></b></font>(<b><a href="#scopes">&lt;optional scope&gt;</a></b>): <b><a href="#subject">&lt;subject&gt;</a></b>
+<sub>empty separator line</sub>
+<b><a href="#body">&lt;optional body&gt;</a></b>
+<sub>empty separator line</sub>
+<b><a href="#footer">&lt;optional footer&gt;</a></b>
+</pre>
 
 
+### Types
+* API relevant changes
+    * `feat` Commits, that adds a new feature
+    * `fix` Commits, that fixes a bug
+* `refactor` Commits, that rewrite/restructure your code, however does not change any behaviour. These are not features, new functionalities nor fixes
+* `style` Commits, that do not affect the meaning (white-space, formatting, missing semi-colons, etc)
+* `test` Commits, that add missing tests or correcting existing tests
+* `docs` Commits, that affect documentation only
+* `build` Commits, that affect build components like build tool, ci pipeline, dependencies, project version, ...
+* `ops` Commits, that affect operational components like infrastructure, deployment, backup, recovery, ...
+* `chore` changes without an impact on source code/tests e.g. modifying `.gitignore`, package update
+* `ci`changes related to continuous integration, like configd and scripts
+* `revert` revert latest changes
+
+### Scopes
+The `scope` provides additional contextual information.
+* Is an **optional** part of the format
+* Allowed Scopes depends on the specific project
+* Don't use issue identifiers as scopes
+
+### Subject
+The `subject` contains a succinct description of the change.
+* Is a **mandatory** part of the format
+* Use the imperative, present tense: "change" not "changed" nor "changes"
+* Don't capitalize the first letter
+* No dot (.) at the end
+
+### Body
+The `body` should include the motivation for the change and contrast this with previous behavior.
+* Is an **optional** part of the format
+* Use the imperative, present tense: "change" not "changed" nor "changes"
+* This is the place to mention issue identifiers and their relations
+
+### Footer
+The `footer` should contain any information about **Breaking Changes** and is also the place to **reference Issues** that this commit refers to.
+* Is an **optional** part of the format
+* **optionally** reference an issue by its id.
+* **Breaking Changes** should start with the word `BREAKING CHANGES:` followed by space or two newlines. The rest of the commit message is then used for this.
+
+
+### Examples
+* ```
+  feat(shopping cart): add the amazing button
+  ```
+* ```
+  feat: remove ticket list endpoint
+  
+  refers to JIRA-1337
+  BREAKING CHANGES: ticket enpoints no longer supports list all entites.
+  ```
+* ```
+  fix: add missing parameter to service call
+  
+  The error occurred because of <reasons>.
+  ```
+* ```
+  build(release): bump version to 1.0.0
+  ```
+* ```
+  build: update dependencies
+  ```
+* ```
+  refactor: implement calculation method as recursion
+  ```
+* ```
+  style: remove empty line
+  ```
+  
 BREAKING CHANGE: is a total change of your code, this is also 
 can be used with a previous tag like or with append !
 Major Breaking Release 
@@ -15,104 +99,5 @@ perf(pencil): remove graphiteWidth option
 
 BREAKING CHANGE: The graphiteWidth option has been removed.
 The default graphite width of 10mm is always used for performance reasons.
-
-!feat: send an email to the customer when a product is shipped
-chore!: drop support for Node 6
-
-BREAK: feat: split ROLE_VIEW_ABSENCE_HISTORIES
-
-or
-
-!feat: split ROLE_VIEW_ABSENCE_HISTORIES
-
-or
-
-FEAT: split ROLE_VIEW_ABSENCE_HISTORIES
-
-```
-Triggering a release
-For each new commit added to one of the release branches (for example: master, next, beta), with git push or by merging a pull request or merging from another branch, a CI build is triggered and runs the semantic-release command to make a release if there are codebase changes since the last release that affect the package functionalities.
-
- **Why to use conventional commits?**
-    * automatically generates chengelogs
-    * determine semantic version based
-    * structured commit history
-
- **How to write conventional commits**
-   ```
-    <type>[optional scope]: <descrioption>
-    [optional body]
-    [optional footer(s)]
-   ```
-    
- **Types**
-   ```
-    fix - to use for the bug fixes
-    feat - use for code features
-    docs – documentation updates
-    chore – changes without an impact on source code/tests(for example package update)
-    refactor – changes which are not features, new functionalities nor fixes    
-    tests – anything tests related
-    perf – changes which improves code efficiency
-    styles – code formatting, white spaces, commas, missing semicolons
-    ci – changes related to CI (configs, scripts),
-    build – changes that impact build process
-    revert – revert latest changes
-   ```
-
- **Scope**
-    any additional information
-    use nouns
-
- **Description**
-    short message
-    written in imperatives -> use add instead of ads or added
-
- **Body**
-     free form
-     explains changes you've made
-
-  **Footer**
-     follows the body with one blank line
-
-
-   **Commitlint, husky**
-We'll leverage husky to add a Git hook that uses commitlint to check whether our commit message meets the conventional commit format, every time we commit.
-
-```
-npm install -D @commitlint/cli @commitlint/config-conventional
-npm install -D husky
-npx husky install
-
 ```
 
-https://dev.to/kouts/automated-versioning-and-package-publishing-using-github-actions-and-semantic-release-1kce
-
-another sciprts:
-        
-        git remote -v
-        npm run release:tag --dryRun
-
-
-usun wszystkie tagi
-
-git tag | xargs git tag -d
-
-Adding Commitizen - genrator conventional commits
-warunek
-if: contains(github.event.head_commit.message, 'feat')
-npx semantic release
-dziala na feat minor +1
-
-nie zmienia wersji przy commit doc
-
-FIX: zmienia patch +1
-
-feat: test commit with footer
-BREAKING CHANGE: does it bump major version test
-: major version chaqnge +1
-
-if i set in package json private: true
-then updated version won't be published on npm library
-
-fix nie updatuje paczki npm 
