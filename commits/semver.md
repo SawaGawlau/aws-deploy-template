@@ -58,5 +58,5 @@ semver.satisfies('0.1.3', '^0.1.2')
 semver.satisfies('0.2.0', '^0.1.3')
 // false
 
-<img src="http://jontejada.com/blog/assets/semver05.png" width="500" height="500" />
+<img src="http://jontejada.com/blog/assets/semver05.png" width="300" height="250" />
 
