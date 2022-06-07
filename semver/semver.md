@@ -4,7 +4,7 @@
 [GitHub release](https://help.github.com/articles/about-releases).
 
 
-<img src="https://www.baeldung.com/wp-content/uploads/sites/4/2021/03/Screenshot-2021-03-06-at-20.27.22-2048x715-1.png" width="600" height="150" />
+<img src="https://www.baeldung.com/wp-content/uploads/sites/4/2021/03/Screenshot-2021-03-06-at-20.27.22-2048x715-1.png" width="450" height="150" />
 
 ## Tilde
  Tilde range specifier means that all releases from ```2.2.3``` up to, but not including ```2.3.0``` are acceptable. Even though ```2.2.3``` may be the current version, the author of a package depending on qs in this way is instructing npm that if new patch releases of ```2.2.4``` and above are available, those are acceptable. 
