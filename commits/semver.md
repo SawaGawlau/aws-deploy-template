@@ -29,33 +29,17 @@ The caret range specifier is used in order to allow automatic upgrades to minor 
 
 Theoretically this should be safe, but it's built on the assumption that package authors are strictly follow semver specification regarding minor versions.
 
+## Node.js related specifications
 
-Caret: Major Zero
-Given Node.js community norms around the liberal usage of major version 0, the second significant difference between tilde and caret has been relatively controversial: the way it deals with versions below 1.0.0.
-While tilde has the same behaviour below 1.0.0 as it does above, caret treats a major version of 0 as a special case. A caret expands to two different ranges depending on whether you also have a minor version of 0 or not, as we'll see below:
-MAJOR AND MINOR ZERO: ^0.0.Z → 0.0.Z
-Using the caret for versions less than 0.1.0 offers no flexibility at all. Only the exact version specified will be valid.
-For example, ^0.0.3 will only permit only exactly version 0.0.3.
-semver.toComparators('^0.0.3')
-// [ [ '=0.0.3' ] ]
+### Caret: Major Zero
+Second significant difference between tilde and caret is the way it deals with versions below ```1.0.0```.
+While tilde has the same behaviour below ```1.0.0``` as it does above, caret treats a major version of 0 as a special case. A caret expands to two different ranges depending on whether you also have a minor version of 0 or not, as we'll see below:
+MAJOR AND MINOR ZERO: ```^0.0.Z → 0.0.Z```
+Using the caret for versions less than ```0.1.0``` offers no flexibility at all. Only the exact version specified will be valid.
+For example, ```^0.0.3``` will only permit only exactly version ```0.0.3```.
 
-semver.satisfies('0.0.4', '^0.0.3')
-// false
-MAJOR ZERO AND MINOR >1: ^0.Y.Z → 0.Y.Z - 0.(Y+1).0
-For versions greater than or equal to 0.1.0, but less than 1.0.0, the caret adopts the same behaviour as a tilde and will allow flexibility in patch versions (only).
-For example, ^0.1.3 will permit all versions from 0.1.3 to the next minor, 0.2.0.
-semver.toComparators('^0.1.2')
-// [ [ '>=0.1.2-0', '<0.2.0-0' ] ]
-
-// compare upper limit for ~
-semver.toComparators('~0.1.2')
-// [ [ '>=0.1.2-0', '<0.2.0-0' ] ]
-
-semver.satisfies('0.1.3', '^0.1.2')
-// true
-
-semver.satisfies('0.2.0', '^0.1.3')
-// false
 
 <img src="http://jontejada.com/blog/assets/semver05.png" width="300" height="250" />
+
+## Recommendation: Start At 1.0.0
 
