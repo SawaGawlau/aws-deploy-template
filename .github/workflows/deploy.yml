@@ -2,7 +2,7 @@ name: Deploy-to-EC2
 on:
     push:
         branches:
-            - xx
+            - main
 jobs:
   deploy:
     # needs: build
@@ -20,7 +20,7 @@ jobs:
         id: deploy
         run: |
           aws deploy create-deployment \
-            --application-name nginx \
-            --deployment-group-name nginx-group \
+            --application-name app \
+            --deployment-group-name app-group \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
