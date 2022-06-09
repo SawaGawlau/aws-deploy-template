@@ -13,3 +13,5 @@ if i set in package json private: true
 then updated version won't be published on npm library
 
 fix nie updatuje paczki npm 
+
+
