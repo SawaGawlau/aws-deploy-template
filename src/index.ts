@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 const app: Application = express()
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('checking if dist folder is deployed on ec2')
+    res.send('hello world')
 })
 
 app.listen(3000, () => {
