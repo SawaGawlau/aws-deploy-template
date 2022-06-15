@@ -11,11 +11,11 @@ const server = app.listen(9876)
 // we want to use ws server, and when we have regular connection 
 // we want to use http server(express)
 const wss = new WebSocket.Server({
-    server: server,
+    noServer: true, //server: server,
     // verifyClient is function to authenticate whetever a client can communicate or not
-    verifyClient: (info) => {
-        return true // will accept the 'handshake' and connect
-    } 
+    // verifyClient: (info) => {
+    //     return true // will accept the 'handshake' and connect
+    // } 
 })
 console.log('websocket ready')
     // whenever there is a websocket connection
@@ -40,6 +40,31 @@ console.log('websocket ready')
                     client.send(dataToString)
                 }
             })
+        })
+    })
+    // we listen for an upgrade event, once it is emited we let wss to emit connection event on out wss 
+    server.on('upgrade', async function upgrade(request, socket, head) {
+        // this is regular raw socket, not websocket
+        // do what you normally do in 'verifyClient() here and then use 
+        // 'WebSocketServer.prototype.handleUpgrade()'
+
+        // test for authentication
+        if (Math.random() > 0.5 ) {
+            // to not leave ws status as pending - we want to end it:
+            return socket.end('HTTP/1.1 401 Unauthorized\r\n', 'ascii')
+        }
+        
+       
+
+        // handleUpgrade passes connection to our ws Server
+        /*
+        as you have already created the server using express and the handleUpgrade method 
+        is called inside express, so you need to inform your WebSocket server to ignore 
+        the server initiating part and continue with the existing resource 
+        as giving the options as { noServer: true }
+        */
+        wss.handleUpgrade(request, socket, head, function done(ws){
+            wss.emit('connection', ws, request) //, ...args
         })
     })
 /* WebSocket.readyState - 
