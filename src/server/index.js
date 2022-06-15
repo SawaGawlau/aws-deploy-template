@@ -6,9 +6,16 @@ const path = require('path')
 app.use('/', express.static(path.resolve(__dirname, '../client')))
 
 const server = app.listen(9876)
-
+// it looks like we are listening on the same port but what we want to do
+// when we are having the connection o port 9876 as ws connection
+// we want to use ws server, and when we have regular connection 
+// we want to use http server(express)
 const wss = new WebSocket.Server({
-    server: server
+    server: server,
+    // verifyClient is function to authenticate whetever a client can communicate or not
+    verifyClient: (info) => {
+        return true // will accept the 'handshake' and connect
+    } 
 })
 console.log('websocket ready')
     // whenever there is a websocket connection
