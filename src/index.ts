@@ -1,9 +1,28 @@
 import * as WebSocket from 'ws'
 import express, {Application, Request} from 'express';
-import { WsServer, JsonParser } from 'ws-builder'
-import * as WS from 'ws'
 
-// import * as http from 'http'
+
+// npm install websocket-ts 
+// https://github.com/jjxxs/websocket-ts#readme
+import {WebsocketBuilder} from 'websocket-ts'
+
+// export enum WebsocketEvents {
+//     open = 'open',          // Connection is opened or re-opened
+//     close = 'close',        // Connection is closed
+//     error = 'error',        // An error occurred
+//     message = 'message',    // A message was received
+//     retry = 'retry'         // A try to re-connect is made
+// }
+// const ws = new WebsocketBuilder('ws://localhost:42421')
+//     .onOpen((i, ev) => { console.log("opened") })
+//     .onClose((i, ev) => { console.log("closed") })
+//     .onError((i, ev) => { console.log("error") })
+//     // multiple callbacks for same event
+//     .onMessage((i, e) => { console.log("echo sent") })
+//     .onMessage((i, e) => { i.send(e.data) })
+//     .onMessage((i, e) => { console.log("message received") })
+//     .onRetry((i, ev) => { console.log("retry") })
+//     .build();
 
 const app: Application = express();
 
@@ -46,15 +65,4 @@ console.log('websocket ready')
             wss.emit('connection', ws, request) //, ...args
         })
     })
-/* WebSocket.readyState - 
-CONNECTING: 0
-OPEN: 1
-CLOSING: 2
-CLOSED: 3
-*/
-// console.log(wss)
-
-
-// now if I enter localhost:9876 there is a message: 'upgrade required'
-// ws = websocket
-// wss = secured websocket ~ http vs https
+    })

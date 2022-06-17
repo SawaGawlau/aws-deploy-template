@@ -61,3 +61,16 @@ WebSockets use cases
 -> showing client progress/logging
 
 Client will be the browser
+
+/* WebSocket.readyState - 
+CONNECTING: 0
+OPEN: 1
+CLOSING: 2
+CLOSED: 3
+*/
+// console.log(wss)
+
+
+// now if I enter localhost:9876 there is a message: 'upgrade required'
+// ws = websocket
+// wss = secured websocket ~ http vs https 
