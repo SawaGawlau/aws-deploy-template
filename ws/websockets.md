@@ -59,3 +59,5 @@ WebSockets use cases
 -> live feed
 -> multiplayer gaming
 -> showing client progress/logging
+
+Client will be the browser

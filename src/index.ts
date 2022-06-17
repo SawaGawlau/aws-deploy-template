@@ -1,5 +1,8 @@
 import * as WebSocket from 'ws'
-import express, {Application} from 'express';
+import express, {Application, Request} from 'express';
+import { WsServer, JsonParser } from 'ws-builder'
+import * as WS from 'ws'
+
 // import * as http from 'http'
 
 const app: Application = express();
@@ -14,6 +17,7 @@ const wss = new WebSocket.Server({
 })
 console.log('websocket ready')
     const clients = []
+
     wss.on('connection', (ws: WebSocket) => {
         clients.push(ws)
         ws.on('message', (message: string) => {
@@ -25,6 +29,13 @@ console.log('websocket ready')
                 }
             })
         })
+        ws.on('open', () => {
+            ws.send(JSON.stringify({
+              key: 'message',
+              data: {
+                some: 'websocket has been opened'
+              }
+            }))
     })
   
     server.on('upgrade', async function upgrade(request, socket, head) {
