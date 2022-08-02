@@ -12,6 +12,7 @@ const server = app.listen(9876)
 // we want to use http server(express)
 const wss = new WebSocket.Server({
     noServer: true, //server: server,
+    // path: '/websockets'
     // verifyClient is function to authenticate whetever a client can communicate or not
     // verifyClient: (info) => {
     //     return true // will accept the 'handshake' and connect
