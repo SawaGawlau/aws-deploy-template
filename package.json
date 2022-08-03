@@ -1,6 +1,6 @@
 {
   "name": "aws-deploy-template",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> ### Project configuration",
   "main": "index.js",
   "scripts": {
