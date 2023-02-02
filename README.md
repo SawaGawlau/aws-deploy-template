@@ -86,7 +86,7 @@ If the CodeDeploy agent is installed and running, you should see a message like 
 10. **Github actions** 
     In your github repository create .github folder and workflows in your repo. Add yaml files with workflow description like this: ``.github/workflows/deploy.yml`` and paste below:
 
-    ``
+    ```
     name: Deploy-to-EC2
     on:
         push:
@@ -114,7 +114,7 @@ If the CodeDeploy agent is installed and running, you should see a message like 
                 --deployment-config-name CodeDeployDefault.OneAtATime \
                 --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
 
-    ``
+    ```
     * **AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY**
     Go to main page of aws account. From right top corner choose security credentials -> access keys -> create new access key. After creation you need to download key and keep secret as it will be no longer visible from aws console. Attach credentials to your github repository: settings -> secrets and variables -> actions -> new repository secret
 
@@ -123,12 +123,12 @@ If the CodeDeploy agent is installed and running, you should see a message like 
     * **application-name deployment group, deployment-config-name** -> name chosen during creation Application on aws account(CodeDeploy set up)
 
 11. **app.spec file**
-In the main folder of the project you need to add app.spec which describes where deployed resources will be stored:
+    In the main folder of the project you need to add app.spec which describes where deployed resources will be stored:
 
-``
-version: 0.0
-os: linux
-files:
-  - source: .
-    destination: /home/ec2-user/folder-name
-``
+    ```
+    version: 0.0
+    os: linux
+    files:
+    - source: .
+        destination: /home/ec2-user/folder-name
+    ```
