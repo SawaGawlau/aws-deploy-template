@@ -42,22 +42,27 @@
         In this case we allow all IP addresses to access your instance and we are able to access app running on port 3000.
 
         You can specify those during creation an instance or you can do this after, by choosing existing instance. Then follow steps: mark an instance -> go to actions -> Networking -> change security groups. Here you will find an interface with security groups assigned. It includes inbound and outbound rules which are attached to an instance and controls incoming and outgoing traffic. 
-    * Install CodeDeploy:
-         * during launching an instance - choose "advanced details" section and in "User Data" put below commands: Instalacja code deploy w konsoli po połączeniu ssh:
-https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
-         ```
-            #!/bin/bash
-            sudo yum -y update
-            sudo yum -y install ruby
-            sudo yum -y install wget
-            cd /home/ec2-user
-            wget https://aws-codedeploy-eu-  central-1.s3.amazonaws.com/latest/codedeploy-agent.msi
-            sudo chmod +x ./instal
-            sudo ./install auto
-         ```
-         commands above didn't work - change this step to these:
-         * You can now automate the installation and update schedule for the AWS CodeDeploy agent through integration with AWS Systems Manager Distributor. You can also install code deploy during creation deployment group(description in next steps) or manually through terminal with above commands.
-    * Tags: these are necessary if we are running multiple instances. It is needed to choose correct one for CodeDeploy. If you are using one instance, this is optional.
+6. Connect to EC2 using SSH:
+    * after creating ec2 you should be able to connect using ssh. During creation you could choose if you want to create new key pair or to use existing one. If you choose creating new one, your keys will be downloaded to ~/.ssh folder. After launching an instance you are no longer able to download those. 
+    * choose an instance -> connect -> SSH client. 
+    * open terminal and use command ``cd ~/.ssh``
+    * enter example from aws console: ``ssh -i "key-name.pem" ec2-user@ec2-3-121-213-66.region.compute.amazonaws.com``
+         
+7. **Install CodeDeploy**
+    * ``sudo yum update``
+    * ``sudo yum install ruby``
+    * ``sudo yum install wget``
+    * ``cd /home/ec2-user``    
+    * ``wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install`` -> you can choose proper bucker-name basing on region your instance is located on here: *https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names*
+    * ``chmod +x ./install``
+    * ``sudo ./install auto``
+    *  to list all available versions in your region: ``aws s3 ls s3://aws-codedeploy-region-identifier/releases/ | grep '\.rpm$'``
+    * install one of the version: ``sudo ./install auto -v releases/codedeploy-agent-###.rpm``
+    * check if service is running: ``sudo service codedeploy-agent status``
+If the CodeDeploy agent is installed and running, you should see a message like The AWS CodeDeploy agent is running. Source: *https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html*
+
+
+
 
 5. **Set up security groups**
     * Security group is a firewall that includes inbound and outbound rules which are attached to a VPC(Virtual private cloyd) which is attached to an instance and controls in & out traffic.
