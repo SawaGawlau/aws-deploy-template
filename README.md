@@ -9,7 +9,7 @@
     * Add all used secrets keys to your repo:
 	    * AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY
         * AWS_REGION
-    * Create appspec.yml file with info where deployed resources should be stored. It has to be in main folder of your project.
+    * Create appspec.yml file with info where deployed resources should be stored. It has to be in main folder of your project. Template is stored in the project.
 
 2. **AWS IDENTITY & ACCESS MANAGEMENT (IAM)**
     * The user created when you set up AWS account for the first time is root user.By default it is FULL administrative and has access to every part of the account.
@@ -22,13 +22,26 @@
 
 4. **AWS account set up for deployment**
     * Set up IAM role - go to roles -> create role
-        * One for EC2 instance - choose use case: EC2 and then add policy: AmazonEC2RoleforAWSCodeDeploy. Choose proper name for this role.
-        for this set up we'll call it EC2CodeDeploy.
-        * One for CodeDeploy  - choose a use case: CodeDeploy(should be at the bottom) and then add policy: AWSCodeDeployRole.
-        Choose proper name(AWSCodeDeployRole)
-    * Launch EC2 instance
+        * One for EC2 instance - choose use case: **EC2** and then add policy: **AmazonEC2RoleforAWSCodeDeploy**. Remember the name you choose for this role. For this set up we'll call it EC2CodeDeploy.
+        * One for CodeDeploy  - choose a use case: **CodeDeploy**(should be at the bottom) and then add policy: **AWSCodeDeployRole**. Remember the name you choose for this role. For this set up we'll call it 
+5. **Launch EC2 instance**
     * Choose AMI (Amazon Machine Image) - template of proper software configuration
-    * Choose correct roles for your instance (EC2CodeDeploy)
+    * Choose correct roles for your instance -> EC2CodeDeploy
+    * **Network settings**
+        * VPC - tbd
+        * Subnets - tbd
+        * Auto-assign public IP - enable (for public subnets). A private subnet means that any EC2 instances located in that subnet are not directly addressable from the public Internet. EC2 instances in a private subnets cannot have a public IP address
+        * security groups - If you are using specific port for running your app you need to set a rule to enable accessing it from your instance
+
+        ``
+        | Type | Protocol | Port Range | Source |
+        | --- | --- | --- | --- |
+        | Custom TCP   | TCP     | 3000    | Anywhere 0.0.0.0/0 |
+        ``
+
+        In this case we allow all IP addresses to access your instance and we are able to access app running on port 3000.
+
+        You can specify those during creation an instance or you can do this after, by choosing existing instance. Then follow steps: mark an instance -> go to actions -> Networking -> change security groups. Here you will find an interface with security groups assigned. It includes inbound and outbound rules which are attached to an instance and controls incoming and outgoing traffic. 
     * Install CodeDeploy:
          * during launching an instance - choose "advanced details" section and in "User Data" put below commands: Instalacja code deploy w konsoli po połączeniu ssh:
 https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
