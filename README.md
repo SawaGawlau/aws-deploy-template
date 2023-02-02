@@ -125,10 +125,10 @@ If the CodeDeploy agent is installed and running, you should see a message like 
 11. **app.spec file**
 In the main folder of the project you need to add app.spec which describes where deployed resources will be stored:
 
-
+``
 version: 0.0
 os: linux
 files:
   - source: .
     destination: /home/ec2-user/folder-name
-
+``
