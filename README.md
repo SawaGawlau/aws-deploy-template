@@ -30,7 +30,8 @@
     * Choose AMI (Amazon Machine Image) - template of proper software configuration
     * Choose correct roles for your instance (EC2CodeDeploy)
     * Install CodeDeploy:
-         * during launching an instance - choose "advanced details" section and in "User Data" put below commands:
+         * during launching an instance - choose "advanced details" section and in "User Data" put below commands: Instalacja code deploy w konsoli po połączeniu ssh:
+https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
          ```
             #!/bin/bash
             sudo yum -y update
@@ -41,6 +42,7 @@
             sudo chmod +x ./instal
             sudo ./install auto
          ```
+         commands above didn't work - change this step to these:
          * You can now automate the installation and update schedule for the AWS CodeDeploy agent through integration with AWS Systems Manager Distributor. You can also install code deploy during creation deployment group(description in next steps) or manually through terminal with above commands.
     * Tags: these are necessary if we are running multiple instances. It is needed to choose correct one for CodeDeploy. If you are using one instance, this is optional.
 
