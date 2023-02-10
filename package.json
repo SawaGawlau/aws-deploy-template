@@ -4,7 +4,7 @@
   "description": "> ### Project configuration",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node src/index.ts",
+    "start:dev": "ts-node app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -b",
     "release": "standard-version",

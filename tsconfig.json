@@ -10,7 +10,9 @@
       "moduleResolution": "node",
       "allowSyntheticDefaultImports": true
     },
-    "include": ["src/**/*"],
+    "include": [
+      "**/*"
+    ],
     "exclude": ["node_modules"]
                                 
     }
