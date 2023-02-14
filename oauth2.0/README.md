@@ -12,9 +12,9 @@
 
     <img src="flow2.png" width="450" height="250" />
 
-Access token which is provided by oauth was never meant to verify user authentication. It was only meant to provide permissions info.
+``Access token which is provided by oauth was never meant to verify user authentication. It was only meant to provide permissions info.``
 
-Authentication is done by OpenID Connect:
+* Authentication is done by OpenID Connect:
 
    <img src="openid.png" width="450" height="250" />
 
