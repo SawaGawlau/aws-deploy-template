@@ -20,7 +20,10 @@ Authentication is done by OpenID Connect:
 
 
 ### 2. Simple login
-shese problems.
+* hash password
+* verifying hash
+* look up user info
+* look up authorization info
 
 ### 3. OAuth 2.0 - terminology
 * resource owner (users who log in)
